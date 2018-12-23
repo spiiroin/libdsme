@@ -30,8 +30,8 @@ INSTALL_PC     += dsme.pc
 INSTALL_PC     += dsme_dbus_if.pc
 INSTALL_PC     += thermalmanager_dbus_if.pc
 
-TARGETS_UT_BIN += tests/ut_libdsme
-INSTALL_UT_XML += tests/tests.xml
+## QUARANTINE TARGETS_UT_BIN += tests/ut_libdsme
+## QUARANTINE INSTALL_UT_XML += tests/tests.xml
 
 TARGETS_ALL    += $(TARGETS_LIB) $(TARGETS_DSO) $(TARGETS_UT_BIN)
 
@@ -80,11 +80,11 @@ install_devel::
 	done
 
 install_tests::
-	# xml
-	install -d -m 755 $(DESTDIR)/opt/tests/libdsme
-	install -m644 $(INSTALL_UT_XML) $(DESTDIR)/opt/tests/libdsme
-	# binary
-	install -m755 $(TARGETS_UT_BIN) $(DESTDIR)/opt/tests/libdsme
+## QUARANTINE 	# xml
+## QUARANTINE 	install -d -m 755 $(DESTDIR)/opt/tests/libdsme
+## QUARANTINE 	install -m644 $(INSTALL_UT_XML) $(DESTDIR)/opt/tests/libdsme
+## QUARANTINE 	# binary
+## QUARANTINE 	install -m755 $(TARGETS_UT_BIN) $(DESTDIR)/opt/tests/libdsme
 
 # ----------------------------------------------------------------------------
 # Build rules

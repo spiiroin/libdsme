@@ -7,8 +7,8 @@ interface: LibDsme
 type: library
 scope: Internal
 state: unstable
-libs-pkg: libdsme0.2.0
-dev-pkg: libdsme0.2.0-dev
+libs-pkg: libdsme0.3.0
+dev-pkg: libdsme0.3.0-dev
 
 interface: ThermalManager
 type: dbus

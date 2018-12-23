@@ -66,8 +66,13 @@ install:
 
 	# Add here commands to install the package into
 	# debian/tmp.
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
-	#mkdir $(CURDIR)/debian/tmp/etc/dsme
+
+	$(MAKE) install_main  DESTDIR=debian/libdsme0.3.0
+	$(MAKE) install_devel DESTDIR=debian/libdsme0.3.0-dev
+	#$(MAKE) install_tests DESTDIR=
+
+## QUARANTINE 	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
+## QUARANTINE 	#mkdir $(CURDIR)/debian/tmp/etc/dsme
 
 	# install tests (if needed)
 ifneq (,$(findstring testcases,$(DEB_BUILD_OPTIONS)))
@@ -87,12 +92,12 @@ binary-arch: build install
 	dh_installexamples
 	dh_installman
 	dh_link
-	dh_strip --dbg-package=libdsme0.2.0
+	dh_strip --dbg-package=libdsme0.3.0
 	dh_compress
 	dh_fixperms
 	dh_makeshlibs --exclude=/usr/lib/dsme/
 	dh_installdeb
-	dh_shlibdeps -l$(CURDIR)/debian/libdsme0.2.0/usr/lib
+	dh_shlibdeps -l$(CURDIR)/debian/libdsme0.3.0/usr/lib
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
